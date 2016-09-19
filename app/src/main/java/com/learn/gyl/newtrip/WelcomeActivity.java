@@ -26,6 +26,7 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.welcome_layout);
         //Bmob.initialize(this, "d418c1a9f8573ebe4668ba51cd541ac3");
         ButterKnife.bind(this);

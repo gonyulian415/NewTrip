@@ -16,4 +16,12 @@
         android:text="click it"
         android:id="@+id/testbtn"
         android:layout_gravity="center_vertical"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="write something"
+        android:gravity="top"
+        android:id="@+id/test_edittext"/>
 </LinearLayout>

@@ -32,6 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".TestActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
