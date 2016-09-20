@@ -1,5 +1,6 @@
 package com.learn.gyl.newtrip;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -25,6 +26,16 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         ButterKnife.bind(this);
+    }
+
+    @OnClick({R.id.writeNote})
+    void clickEvent(View view){
+        switch (view.getId()){
+            case R.id.writeNote:
+                Intent intent = new Intent(MainActivity.this,NoteContentActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 }

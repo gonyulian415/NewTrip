@@ -7,6 +7,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.learn.gyl.newtrip.bean.Note;
 import com.learn.gyl.newtrip.bean.Person;
 
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             //初始化的建表操作
             TableUtils.createTable(connectionSource,Person.class);
+            TableUtils.createTable(connectionSource,Note.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

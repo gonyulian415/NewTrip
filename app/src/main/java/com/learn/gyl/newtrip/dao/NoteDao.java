@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
-import com.learn.gyl.newtrip.bean.Person;
+import com.learn.gyl.newtrip.bean.Note;
 import com.learn.gyl.newtrip.utils.DatabaseHelper;
 
 import java.sql.SQLException;
@@ -12,39 +12,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by admin on 2016/9/14.
+ * Created by admin on 2016/9/20.
  */
-public class PersonDao {
+public class NoteDao {
     private Context context;
-    private Dao<Person,Integer> dao;
+    private Dao<Note,Integer> dao;
     private DatabaseHelper databaseHelper;
 
-    public PersonDao(Context context){      //初始化Dao
+    public NoteDao(Context context) {
         this.context = context;
         databaseHelper = DatabaseHelper.getDatabaseHelper(context);
-        dao = databaseHelper.getDao(Person.class);
+        dao = databaseHelper.getDao(Note.class);
     }
 
-    //以下是具体的操作
-    public void addPerson(Person person){
+    public void saveNote(Note note){
         try {
-            dao.create(person);
-            Log.d("xyz","save person succeed");
+            dao.create(note);       //保存便签
+            Log.d("xyz", "save note succeed");
         } catch (SQLException e) {
-            Log.d("xyz","save person fail");
             e.printStackTrace();
+            Log.d("xyz", "save note fail");
         }
     }
 
-    public List<Person> findAllPerson(){
-        List<Person> list = null;
+    public List<Note> loadNote(){
+        List<Note> list = null;
         try {
             list = dao.queryBuilder().query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         if (list == null){
-            list = new ArrayList<Person>();
+            list = new ArrayList<Note>();
         }
         return list;
     }
