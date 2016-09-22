@@ -32,10 +32,11 @@
         android:orientation="horizontal"
         android:layout_alignParentRight="true"
         android:gravity="center">
-        <ImageView
+
+        <Button
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/title_bar_delete_button_normal" />
+            android:background="@drawable/delete_button"/>
 
         <ImageView
             android:layout_width="57dp"

@@ -1,6 +1,7 @@
 package com.learn.gyl.newtrip.presenter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.learn.gyl.newtrip.bean.Note;
 import com.learn.gyl.newtrip.dao.NoteDao;
@@ -22,10 +23,14 @@ public class NoteContentPrensenter {
 
     public void saveNote(){
         String content = iNoteCotentView.getContent();
-        NoteDao noteDao = new NoteDao(context);
-        Note note = new Note();
-        note.setNoteCotent(content);
-        note.setLastEditTime(new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss").format(new java.util.Date()));
-        noteDao.saveNote(note);
+        if (!("".equals(content) || "".equals(content.trim()))){    //内容为空或者全为空格时不保存便签
+            NoteDao noteDao = new NoteDao(context);
+            Note note = new Note();
+            note.setNoteCotent(content);
+            note.setLastEditTime(new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss").format(new java.util.Date()));
+            noteDao.saveNote(note);
+        }else {
+            Log.d("xyz","content is empty");
+        }
     }
 }

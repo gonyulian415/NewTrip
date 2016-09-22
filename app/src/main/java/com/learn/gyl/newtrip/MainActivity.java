@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.learn.gyl.newtrip.adapter.NoteListAdapter;
 import com.learn.gyl.newtrip.bean.Note;
 import com.learn.gyl.newtrip.bean.Person;
 import com.learn.gyl.newtrip.dao.PersonDao;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity implements IMainView{
     }
 
     @Override
-    public void updateNoteList(List<String> list) {
-        listView.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list));
+    public void updateNoteList(List<Note> list) {
+        listView.setAdapter(new NoteListAdapter(this,list));
     }
 }
