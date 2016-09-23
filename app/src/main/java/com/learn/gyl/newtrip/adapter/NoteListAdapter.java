@@ -19,7 +19,7 @@ public class NoteListAdapter extends BaseAdapter {
     private Context context;
     private List<Note> noteList;
     private LayoutInflater layoutInflater;
-    public final class ListItemView{
+    public static class ListItemView{
         public TextView time;
         public TextView content;
     }
