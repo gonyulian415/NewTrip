@@ -7,4 +7,5 @@ import com.learn.gyl.newtrip.bean.Note;
  */
 public interface INoteCotentView {
     String getContent();
+    void setCotent(String content);
 }

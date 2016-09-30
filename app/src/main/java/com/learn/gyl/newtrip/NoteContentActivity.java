@@ -26,7 +26,9 @@ public class NoteContentActivity extends BaseActivity implements INoteCotentView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_content_layout);
         ButterKnife.bind(this);
-
+        Intent intent = getIntent();
+        String noteId = intent.getStringExtra("noteId");
+        noteContentPrensenter.initNoteContent(noteId);
     }
 
     @OnClick({R.id.returnAndSave})
@@ -35,6 +37,7 @@ public class NoteContentActivity extends BaseActivity implements INoteCotentView
             case R.id.returnAndSave:
                 noteContentPrensenter.saveNote();
                 Intent intent = new Intent(NoteContentActivity.this,MainActivity.class);
+                intent.putExtra("notInit","1");
                 startActivity(intent);
                 finish();
                 break;
@@ -49,6 +52,11 @@ public class NoteContentActivity extends BaseActivity implements INoteCotentView
             content = "";
         }
         return content;
+    }
+
+    @Override
+    public void setCotent(String content) {
+        editText.setText(content);
     }
 
 }

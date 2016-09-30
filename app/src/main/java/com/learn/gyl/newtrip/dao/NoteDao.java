@@ -47,4 +47,24 @@ public class NoteDao {
         }
         return list;
     }
+
+    public String getNoteContent(String id){
+        String noteCotent = null;
+        int noteId = Integer.parseInt(id);
+        List<Note> list = null;
+        try {
+            list = dao.queryBuilder().where().eq("noteId",noteId).query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (list == null){
+            list = new ArrayList<Note>();
+        }
+        noteCotent = list.get(0).getNoteCotent();
+        Log.d("xyz",list.get(0).getNoteId()+list.get(0).getNoteCotent()+list.get(0).getLastEditTime());
+        if (noteCotent == null){
+            noteCotent = "";
+        }
+        return noteCotent;
+    }
 }

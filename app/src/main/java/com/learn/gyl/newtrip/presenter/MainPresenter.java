@@ -31,6 +31,6 @@ public class MainPresenter {
         for (Note note : noteList){
             contentList.add(note.getNoteCotent());
         }
-        iMainView.updateNoteList(noteList);
+        iMainView.loadNoteList(noteList);
     }
 }

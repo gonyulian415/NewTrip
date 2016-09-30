@@ -1,6 +1,7 @@
 package com.learn.gyl.newtrip.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.learn.gyl.newtrip.bean.Note;
@@ -31,6 +32,14 @@ public class NoteContentPrensenter {
             noteDao.saveNote(note);
         }else {
             Log.d("xyz","content is empty");
+        }
+    }
+
+    public void initNoteContent(String s){
+        if (s != null){
+            NoteDao noteDao = new NoteDao(context);
+            String content = noteDao.getNoteContent(s);
+            iNoteCotentView.setCotent(content);
         }
     }
 }

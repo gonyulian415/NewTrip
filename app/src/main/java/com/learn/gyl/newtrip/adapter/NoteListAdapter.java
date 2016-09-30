@@ -22,6 +22,7 @@ public class NoteListAdapter extends BaseAdapter {
     public static class ListItemView{
         public TextView time;
         public TextView content;
+        public TextView noteId;
     }
 
     public NoteListAdapter(Context context, List<Note> noteList) {
@@ -55,6 +56,7 @@ public class NoteListAdapter extends BaseAdapter {
             //获取控件对象
             listItemView.time = (TextView) convertView.findViewById(R.id.note_time);
             listItemView.content = (TextView) convertView.findViewById(R.id.note_pre);
+            listItemView.noteId = (TextView) convertView.findViewById(R.id.note_list_id);
             //设置控件集到convertView
             convertView.setTag(listItemView);
         }else {
@@ -63,6 +65,7 @@ public class NoteListAdapter extends BaseAdapter {
         //设置控件内容
         listItemView.time.setText(noteList.get(position).getLastEditTime());
         listItemView.content.setText(noteList.get(position).getNoteCotent());
+        listItemView.noteId.setText(noteList.get(position).getNoteId()+"");
         return convertView;
     }
 }
